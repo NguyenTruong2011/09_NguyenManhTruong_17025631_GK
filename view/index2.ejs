@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Danh Sách Sản Phẩm</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Mã SP</th>
+                    <th>Tên SP</th>
+                    <th>Số Lượng</th>
+                    <th>Chọn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% for(let i=0;i < dataSP.length;i++) { %>
+                    <td><%=dataSP[i].masp%></td>
+                    <td><%=dataSP[i].tensp%></td>
+                    <td><%=dataSP[i].soluong%></td>
+                    <td>
+                        <form action="/delete" method="POST">
+                            <input type="hidden" name="idsv" class="btn btn-danger" value="<%=dataSP[i].id%>" />
+                            <button type="submit" class="btn btn-danger">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+
+
+            </tbody>
+        </table>
+        <a href='/addsp' class="btn btn-success"> Thm san pham</a>
+    </div>
+</body>
+
+</html>
